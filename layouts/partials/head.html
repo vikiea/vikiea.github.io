@@ -1,0 +1,19 @@
+{{ $title := cond .IsHome .Site.Title (printf "%s | %s" .Title .Site.Title) -}}
+{{ $description := .Params.description | default .Site.Params.description -}}
+{{ $styles := resources.Get "css/main.css" | minify | fingerprint -}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $description }}">
+<meta name="theme-color" content="#f6f7fb">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+{{ with (index (where hugo.Data.apps "featured" true) 0) -}}
+<meta property="og:image" content="{{ .image | absURL }}">
+{{ end -}}
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="alternate" type="application/rss+xml" href="{{ "index.xml" | absURL }}" title="{{ .Site.Title }}">
+<link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">

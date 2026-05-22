@@ -1,0 +1,25 @@
+{{ define "main" }}
+<section class="page-hero">
+  <p class="soft-label">Taxonomy</p>
+  <h1>{{ .Title }}</h1>
+  <p>Browse notes by tag.</p>
+</section>
+
+<section class="section-shell">
+  {{ if .Data.Terms }}
+    <div class="term-grid">
+      {{ range .Data.Terms.Alphabetical }}
+        <a class="term-card" href="{{ .Page.RelPermalink }}">
+          <span>{{ .Page.Title }}</span>
+          <strong>{{ .Count }}</strong>
+        </a>
+      {{ end }}
+    </div>
+  {{ else }}
+    <article class="empty-state">
+      <p class="soft-label">No tags yet</p>
+      <h2>Tags will appear after posts are published.</h2>
+    </article>
+  {{ end }}
+</section>
+{{ end }}

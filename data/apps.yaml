@@ -1,0 +1,24 @@
+- name: Age Mac
+  summary: Local-first age encryption for macOS. Files, keys, passphrases, and operation history stay on your Mac.
+  url: /age_mac/
+  platform: macOS
+  status: Current public release
+  version: "1.3.2"
+  tags:
+    - Encryption
+    - macOS
+    - Local-first
+  featured: true
+  icon: /images/age-mac-icon.png
+  image: /images/age-mac-screenshot.jpg
+  cta: View Age Mac
+- name: More Apps
+  summary: A reserved shelf for the next small tool, native app, or utility worth publishing.
+  url: "#"
+  platform: Coming soon
+  status: Placeholder
+  tags:
+    - Ideas
+    - Tools
+  featured: false
+  cta: Coming Soon

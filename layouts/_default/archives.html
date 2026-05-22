@@ -1,0 +1,26 @@
+{{ define "main" }}
+{{ $posts := where .Site.RegularPages "Section" "posts" }}
+<section class="page-hero">
+  <p class="soft-label">Archive</p>
+  <h1>{{ .Title }}</h1>
+  {{ with .Description }}<p>{{ . }}</p>{{ end }}
+</section>
+
+<section class="section-shell">
+  {{ if $posts }}
+    <div class="archive-list">
+      {{ range $posts.ByDate.Reverse }}
+        <a class="archive-row" href="{{ .RelPermalink }}">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
+          <span>{{ .Title }}</span>
+        </a>
+      {{ end }}
+    </div>
+  {{ else }}
+    <article class="empty-state">
+      <p class="soft-label">No published posts yet</p>
+      <h2>The archive is ready for future writing.</h2>
+    </article>
+  {{ end }}
+</section>
+{{ end }}

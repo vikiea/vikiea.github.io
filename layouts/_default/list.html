@@ -1,0 +1,32 @@
+{{ define "main" }}
+<section class="page-hero">
+  <p class="soft-label">{{ .Kind | humanize }}</p>
+  <h1>{{ .Title }}</h1>
+  {{ with .Description }}<p>{{ . }}</p>{{ end }}
+</section>
+
+<section class="section-shell">
+  {{ if .Pages }}
+    <div class="post-list">
+      {{ range .Pages.ByDate.Reverse }}
+        {{ if eq .Kind "page" }}
+          {{ partial "post-card.html" . }}
+        {{ else }}
+          <article class="post-card">
+            <a href="{{ .RelPermalink }}">
+              <h3>{{ .Title }}</h3>
+              {{ with .Description }}<p>{{ . }}</p>{{ else }}<p>{{ len .Pages }} item{{ if ne (len .Pages) 1 }}s{{ end }}</p>{{ end }}
+            </a>
+          </article>
+        {{ end }}
+      {{ end }}
+    </div>
+  {{ else }}
+    <article class="empty-state">
+      <p class="soft-label">Empty for now</p>
+      <h2>No published content yet.</h2>
+      <p>Drafts and future posts will appear here after publication.</p>
+    </article>
+  {{ end }}
+</section>
+{{ end }}

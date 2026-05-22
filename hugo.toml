@@ -1,0 +1,57 @@
+baseURL = "https://vikiea.github.io/"
+locale = "zh-CN"
+title = "vikiea"
+copyright = "© vikiea"
+enableRobotsTXT = true
+enableGitInfo = false
+
+[params]
+  description = "App作品、工程实践和个人技术笔记。"
+  author = "vikiea"
+  github = "https://github.com/vikiea"
+  featuredAppURL = "/age_mac/"
+
+[permalinks]
+  posts = "/posts/:year/:month/:slug/"
+
+[taxonomies]
+  tag = "tags"
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = false
+  [markup.highlight]
+    noClasses = false
+    style = "github"
+
+[[menus.main]]
+  name = "Apps"
+  url = "/#apps"
+  weight = 10
+
+[[menus.main]]
+  name = "Blog"
+  pageRef = "/posts"
+  weight = 20
+
+[[menus.main]]
+  name = "Tags"
+  pageRef = "/tags"
+  weight = 30
+
+[[menus.main]]
+  name = "Archive"
+  pageRef = "/archives"
+  weight = 40
+
+[[menus.main]]
+  name = "About"
+  pageRef = "/about"
+  weight = 50
