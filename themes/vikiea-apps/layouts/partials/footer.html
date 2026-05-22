@@ -1,10 +1,9 @@
 <footer class="site-footer">
   <div class="footer-inner">
-    <p>© {{ now.Year }} {{ .Site.Params.author }}. Built with Hugo.</p>
+    <p>© {{ now.Year }} {{ .Site.Params.author }}. App portfolio built with Hugo.</p>
     <div class="footer-links">
-      <a href="{{ "index.xml" | relURL }}">RSS</a>
+      <a href="{{ "apps/" | relURL }}">Apps</a>
       {{ with .Site.Params.github }}<a href="{{ . }}" rel="me noopener" target="_blank">GitHub</a>{{ end }}
-      <a href="{{ "about/" | relURL }}">About</a>
     </div>
   </div>
 </footer>

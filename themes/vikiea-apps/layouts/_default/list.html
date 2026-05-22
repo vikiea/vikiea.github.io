@@ -1,11 +1,12 @@
 {{ define "main" }}
-<section class="page-hero">
-  <p class="soft-label">{{ .Kind | humanize }}</p>
-  <h1>{{ .Title }}</h1>
-  {{ with .Description }}<p>{{ . }}</p>{{ end }}
-</section>
+<header class="page-title">
+  <div>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
+  </div>
+</header>
 
-<section class="section-shell">
+<section class="section-shell list-shell">
   {{ if .Pages }}
     <div class="post-list">
       {{ range .Pages.ByDate.Reverse }}

@@ -1,4 +1,4 @@
 ---
-title: "Apps and notes"
-description: "A personal homepage for app projects and engineering notes."
+title: "App recommendations"
+description: "A personal homepage focused on recommended App works."
 ---

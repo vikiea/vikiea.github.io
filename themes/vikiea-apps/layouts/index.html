@@ -1,17 +1,16 @@
 {{ define "main" }}
 {{ $apps := hugo.Data.apps }}
 {{ $featured := index (where $apps "featured" true) 0 }}
-{{ $posts := first 3 (where .Site.RegularPages "Section" "posts") }}
 
 <section class="hero-section" aria-labelledby="home-title">
   <div class="hero-grid">
     <div class="hero-copy">
       <p class="soft-label">vikiea.github.io</p>
-      <h1 id="home-title">App works, tools, and engineering notes.</h1>
-      <p class="hero-lede">A personal shelf for useful small software, native app experiments, and the build notes behind them.</p>
+      <h1 id="home-title">Recommended apps and tools by vikiea.</h1>
+      <p class="hero-lede">A focused App portfolio for published tools, macOS experiments, and useful software worth opening first.</p>
       <div class="hero-actions">
         <a class="button primary" href="#apps">Explore Apps</a>
-        <a class="button secondary" href="{{ "posts/" | relURL }}">Read Notes</a>
+        {{ with $featured }}<a class="button secondary" href="{{ .url | relURL }}">{{ .cta | default "View featured app" }}</a>{{ end }}
       </div>
     </div>
 
@@ -52,7 +51,7 @@
 <section class="section-shell" aria-labelledby="app-shelf-title">
   <div class="section-heading">
     <p class="soft-label">App shelf</p>
-    <h2 id="app-shelf-title">Published and upcoming works.</h2>
+    <h2 id="app-shelf-title">Featured and upcoming App works.</h2>
   </div>
   <div class="app-grid">
     {{ range $apps }}
@@ -73,34 +72,5 @@
       </article>
     {{ end }}
   </div>
-</section>
-
-<section class="section-shell split-section" aria-labelledby="notes-title">
-  <div class="section-heading">
-    <p class="soft-label">Blog</p>
-    <h2 id="notes-title">Notes are ready when the writing starts.</h2>
-    <p>The scaffold includes posts, tags, RSS, and archive pages. Draft content stays hidden from production builds.</p>
-    <a class="text-link" href="{{ "posts/" | relURL }}">Open blog index</a>
-  </div>
-  <div class="post-list compact">
-    {{ if $posts }}
-      {{ range $posts }}{{ partial "post-card.html" . }}{{ end }}
-    {{ else }}
-      <article class="empty-state">
-        <p class="soft-label">No published posts yet</p>
-        <h3>The blog shelf is intentionally quiet.</h3>
-        <p>Draft notes can be previewed locally with <code>hugo server --buildDrafts</code> and published when ready.</p>
-      </article>
-    {{ end }}
-  </div>
-</section>
-
-<section class="section-shell about-band" aria-labelledby="about-title">
-  <div>
-    <p class="soft-label">About</p>
-    <h2 id="about-title">Small tools, clear surfaces, local-first defaults.</h2>
-  </div>
-  <p>This site is structured as a clean Hugo source project, so new apps and notes can be added without touching generated output.</p>
-  <a class="button secondary" href="{{ "about/" | relURL }}">More about vikiea</a>
 </section>
 {{ end }}

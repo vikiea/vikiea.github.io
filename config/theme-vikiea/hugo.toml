@@ -1,0 +1,5 @@
+theme = "vikiea-apps"
+
+[params.themeSwitch]
+  name = "vikiea-apps"
+  description = "Default App portfolio homepage theme."

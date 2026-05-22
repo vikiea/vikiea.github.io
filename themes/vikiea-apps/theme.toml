@@ -1,0 +1,12 @@
+name = "vikiea-apps"
+license = "MIT"
+licenselink = "https://github.com/vikiea/vikiea.github.io"
+description = "Custom Hugo theme for vikiea's App-focused personal homepage."
+homepage = "https://vikiea.github.io/"
+tags = ["portfolio", "apps", "blog", "personal"]
+features = ["app cards", "blog lists", "archives", "tags"]
+min_version = "0.161.1"
+
+[author]
+  name = "vikiea"
+  homepage = "https://github.com/vikiea"
