@@ -1,8 +1,8 @@
 {{ define "main" }}
 <section class="page-hero">
   <p class="soft-label">404</p>
-  <h1>Page not found.</h1>
-  <p>The page may have moved, or it may belong to another project site.</p>
-  <a class="button primary" href="{{ .Site.Home.RelPermalink }}">Back home</a>
+  <h1>{{ i18n "not_found_title" }}</h1>
+  <p>{{ i18n "not_found_copy" }}</p>
+  <a class="button primary" href="{{ .Site.Home.RelPermalink }}">{{ i18n "back_home" }}</a>
 </section>
 {{ end }}

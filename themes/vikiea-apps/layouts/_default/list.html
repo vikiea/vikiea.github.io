@@ -16,7 +16,7 @@
           <article class="post-card">
             <a href="{{ .RelPermalink }}">
               <h3>{{ .Title }}</h3>
-              {{ with .Description }}<p>{{ . }}</p>{{ else }}<p>{{ len .Pages }} item{{ if ne (len .Pages) 1 }}s{{ end }}</p>{{ end }}
+              {{ with .Description }}<p>{{ . }}</p>{{ else }}<p>{{ len .Pages }}</p>{{ end }}
             </a>
           </article>
         {{ end }}
@@ -24,9 +24,9 @@
     </div>
   {{ else }}
     <article class="empty-state">
-      <p class="soft-label">Empty for now</p>
-      <h2>No published content yet.</h2>
-      <p>Drafts and future posts will appear here after publication.</p>
+      <p class="soft-label">{{ i18n "empty_for_now" }}</p>
+      <h2>{{ i18n "no_published_content" }}</h2>
+      <p>{{ i18n "future_posts" }}</p>
     </article>
   {{ end }}
 </section>

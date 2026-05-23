@@ -1,6 +1,6 @@
 # vikiea.github.io
 
-Personal homepage and blog scaffold built with Hugo.
+Personal homepage and blog scaffold built with Hugo. Chinese is served at the root site, and English is served under `/en/`.
 
 ## Usage
 

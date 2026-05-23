@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{ $posts := where .Site.RegularPages "Section" "posts" }}
 <section class="page-hero">
-  <p class="soft-label">Archive</p>
+  <p class="soft-label">{{ i18n "archive" }}</p>
   <h1>{{ .Title }}</h1>
   {{ with .Description }}<p>{{ . }}</p>{{ end }}
 </section>
@@ -18,8 +18,8 @@
     </div>
   {{ else }}
     <article class="empty-state">
-      <p class="soft-label">No published posts yet</p>
-      <h2>The archive is ready for future writing.</h2>
+      <p class="soft-label">{{ i18n "no_published_posts" }}</p>
+      <h2>{{ i18n "archive_ready" }}</h2>
     </article>
   {{ end }}
 </section>

@@ -4,7 +4,7 @@
     <h3>{{ .Title }}</h3>
     {{ with .Description }}<p>{{ . }}</p>{{ end }}
     {{ with .Params.tags }}
-      <div class="tag-row" aria-label="Tags">
+      <div class="tag-row" aria-label="{{ i18n "tags" }}">
         {{ range . }}<span>{{ . }}</span>{{ end }}
       </div>
     {{ end }}

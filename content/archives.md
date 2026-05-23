@@ -1,5 +1,5 @@
 ---
-title: "Archive"
-description: "All published notes by date."
+title: "归档"
+description: "按日期排列的已发布笔记。"
 layout: "archives"
 ---

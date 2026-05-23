@@ -2,30 +2,30 @@
 title: "Age Mac"
 date: 2026-05-22T00:00:00+08:00
 draft: false
-description: "Local-first age encryption for macOS."
+description: "面向 macOS 的本地优先 age 文件加密工具。"
 tags:
   - macOS
-  - Encryption
-  - Local-first
+  - 加密
+  - 本地优先
 slug: "age-mac"
 ---
 
-Age Mac is a native macOS file encryption app built around the age format. It is a standalone SwiftUI desktop app with a bundled Go streaming engine, designed for local file work: choose files, encrypt or decrypt them, watch progress, and keep keys on your own machine.
+Age Mac 是围绕 age 格式构建的原生 macOS 文件加密 App。它是一个独立的 SwiftUI 桌面应用，内置 Go 流式处理引擎，面向本地文件工作流：选择文件、加密或解密、查看进度，并把密钥留在自己的机器上。
 
-Repository: [github.com/vikiea/age_mac](https://github.com/vikiea/age_mac)
+代码仓库：[github.com/vikiea/age_mac](https://github.com/vikiea/age_mac)
 
-## Features
+## 功能
 
-- Encrypt multiple files into one `.tar.gz.age` or `.tar.age` archive.
-- Encrypt files separately, one age archive per input file.
-- Decrypt `.age` files and automatically unpack tar or tar.gz payloads.
-- Use passphrases or X25519 age keys.
-- Generate, import, rename, view, and export local age keys.
-- Import existing keys from `~/.config/age` on launch.
-- Keep operation history, outputs, and task progress local.
-- Check for app updates with Sparkle through the public GitHub Pages appcast.
+- 将多个文件加密成一个 `.tar.gz.age` 或 `.tar.age` 归档。
+- 分别加密文件，每个输入文件生成一个 age 归档。
+- 解密 `.age` 文件，并自动解包 tar 或 tar.gz 内容。
+- 使用口令或 X25519 age 密钥。
+- 生成、导入、重命名、查看和导出本地 age 密钥。
+- 启动时从 `~/.config/age` 导入已有密钥。
+- 将操作历史、输出和任务进度保留在本地。
+- 通过 GitHub Pages 上的公开 appcast 使用 Sparkle 检查更新。
 
-## Architecture
+## 架构
 
 ```shell
 Sources/AgeMac/App/AgeMacApp.swift          App entry, commands, scenes
@@ -39,49 +39,49 @@ Engine/main.go                             Streaming age engine
 script/build_and_run.sh                    Local build and bundle staging
 ```
 
-The Swift app owns UI, local state, AppKit panels, and task orchestration. The Go engine owns streaming tar, gzip, encryption, and decryption work. Communication between them is JSON Lines over a child process.
+Swift 应用负责 UI、本地状态、AppKit 面板和任务编排。Go 引擎负责流式 tar、gzip、加密和解密。两者通过子进程上的 JSON Lines 通信。
 
-## Privacy Model
+## 隐私模型
 
-Age Mac is local-first. Files, passphrases, private keys, and operation history are processed and stored only on this Mac. The app does not upload files, telemetry, keys, or usage history.
+Age Mac 是本地优先的。文件、口令、私钥和操作历史只在这台 Mac 上处理和保存。App 不会上传文件、遥测、密钥或使用历史。
 
-When update checking is enabled or triggered, Sparkle reads public update metadata from:
+启用或触发更新检查时，Sparkle 会读取这些公开更新元数据：
 
 ```text
 https://vikiea.github.io/age_mac/appcast-arm64.xml
 https://vikiea.github.io/age_mac/appcast-x86_64.xml
 ```
 
-The app chooses the matching feed at runtime based on the current Mac architecture.
+App 会根据当前 Mac 架构在运行时选择匹配的更新源。
 
-See [PRIVACY.md](PRIVACY.md) and the hosted privacy page at [vikiea.github.io/age_mac/privacy/](https://vikiea.github.io/age_mac/privacy/).
+参见 [PRIVACY.md](https://github.com/vikiea/age_mac/blob/master/PRIVACY.md) 和托管隐私页面 [vikiea.github.io/age_mac/privacy/](https://vikiea.github.io/age_mac/privacy/)。
 
-## Build And Run
+## 构建与运行
 
-Requirements:
+环境要求：
 
-- macOS 14 or later
-- Xcode command line tools with Swift 5.10 or newer
-- Go with the toolchain declared by `Engine/go.mod`
+- macOS 14 或更高版本
+- 带 Swift 5.10 或更高版本的 Xcode 命令行工具
+- `Engine/go.mod` 声明的 Go 工具链
 
-Run the app:
+运行 App：
 
 ```bash
 ./script/build_and_run.sh
 ```
 
-The script builds the Go engine, builds the SwiftPM executable, stages `dist/AgeMac.app`, embeds resources and Sparkle, signs locally, registers the bundle, and launches it.
+脚本会构建 Go 引擎、构建 SwiftPM 可执行文件、暂存 `dist/AgeMac.app`、嵌入资源和 Sparkle、本地签名、注册 bundle 并启动应用。
 
-For repeatable Codex and terminal workflows, install the project CLI:
+为了获得可复用的 Codex 和终端工作流，可以安装项目 CLI：
 
 ```bash
 (cd Tools/age-mac-cli && make install-local)
 age-mac --json doctor
 ```
 
-The CLI wraps build, run, debug, verification, packaging, PR, and GitHub Release actions from any working directory. See [Tools/age-mac-cli/README.md](Tools/age-mac-cli/README.md).
+CLI 可以在任意工作目录封装构建、运行、调试、验证、打包、PR 和 GitHub Release 操作。参见 [Tools/age-mac-cli/README.md](https://github.com/vikiea/age_mac/blob/master/Tools/age-mac-cli/README.md)。
 
-## Verify
+## 验证
 
 ```bash
 swift build
@@ -91,16 +91,16 @@ git diff --check
 codesign --verify --deep --strict --verbose=2 dist/AgeMac.app
 ```
 
-Use `env -u GOROOT` for Go commands if your shell has a stale `GOROOT` from another installation.
+如果 shell 中存在其他安装遗留的 `GOROOT`，运行 Go 命令时使用 `env -u GOROOT`。
 
-## Release And Updates
+## 发布与更新
 
-Age Mac uses Sparkle 2 for online updates. Architecture-specific appcasts are hosted from the `pages/` directory by GitHub Pages.
+Age Mac 使用 Sparkle 2 做在线更新。不同架构的 appcast 由 GitHub Pages 从 `pages/` 目录托管。
 
-Key points:
+要点：
 
-- `SUPublicEDKey` is written into the generated app `Info.plist`.
-- The Sparkle private EdDSA key stays in the local macOS Keychain or another private secret store.
-- DMG release assets and appcast entries are generated with `scripts/release/build_dmg_release.sh all`.
-- `scripts/sparkle/release_appcast.sh` is kept as a compatibility wrapper for the same DMG release flow.
-- GitHub Pages publishes `pages/appcast-arm64.xml` and `pages/appcast-x86_64.xml`.
+- `SUPublicEDKey` 会写入生成的 App `Info.plist`。
+- Sparkle 私有 EdDSA 密钥保留在本地 macOS Keychain 或其他私有密钥存储中。
+- DMG 发布资产和 appcast 条目通过 `scripts/release/build_dmg_release.sh all` 生成。
+- `scripts/sparkle/release_appcast.sh` 保留为同一 DMG 发布流程的兼容包装。
+- GitHub Pages 发布 `pages/appcast-arm64.xml` 和 `pages/appcast-x86_64.xml`。

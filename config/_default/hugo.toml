@@ -1,10 +1,11 @@
 baseURL = "https://vikiea.github.io/"
-locale = "zh-CN"
 title = "vikiea"
 copyright = "© vikiea"
 enableRobotsTXT = true
 enableGitInfo = false
 theme = "vikiea-apps"
+defaultContentLanguage = "zh"
+defaultContentLanguageInSubdir = false
 
 [params]
   description = "App作品推荐与发布入口。"
@@ -32,7 +33,26 @@ theme = "vikiea-apps"
     noClasses = false
     style = "github"
 
-[[menus.main]]
-  name = "Apps"
-  pageRef = "/apps"
-  weight = 10
+[languages]
+  [languages.zh]
+    locale = "zh-CN"
+    label = "中文"
+    title = "vikiea"
+    weight = 1
+    [languages.zh.params]
+      description = "App作品推荐与发布入口。"
+    [[languages.zh.menus.main]]
+      name = "App"
+      pageRef = "/apps"
+      weight = 10
+  [languages.en]
+    locale = "en-US"
+    label = "English"
+    title = "vikiea"
+    weight = 2
+    [languages.en.params]
+      description = "App recommendations and release entry points."
+    [[languages.en.menus.main]]
+      name = "Apps"
+      pageRef = "/apps"
+      weight = 10

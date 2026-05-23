@@ -1,8 +1,8 @@
 ---
-title: "About"
-description: "About vikiea and this site."
+title: "关于"
+description: "关于 vikiea 和这个站点。"
 ---
 
-I build small tools, native apps, and engineering workflows. This site is the front door for app projects and a quiet place for technical notes.
+我会做一些小工具、原生 App 和工程工作流。这个站点目前作为 App 作品入口，也为后续技术笔记预留空间。
 
-The first featured project is [Age Mac](/age_mac/), a local-first macOS app for age file encryption.
+当前主推作品是 [Age Mac](/age_mac/)，一个面向 age 文件加密的本地优先 macOS App。

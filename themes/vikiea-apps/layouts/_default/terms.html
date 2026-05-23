@@ -1,8 +1,8 @@
 {{ define "main" }}
 <section class="page-hero">
-  <p class="soft-label">Taxonomy</p>
+  <p class="soft-label">{{ i18n "taxonomy" }}</p>
   <h1>{{ .Title }}</h1>
-  <p>Browse notes by tag.</p>
+  <p>{{ i18n "browse_notes_by_tag" }}</p>
 </section>
 
 <section class="section-shell">
@@ -17,8 +17,8 @@
     </div>
   {{ else }}
     <article class="empty-state">
-      <p class="soft-label">No tags yet</p>
-      <h2>Tags will appear after posts are published.</h2>
+      <p class="soft-label">{{ i18n "no_tags_yet" }}</p>
+      <h2>{{ i18n "tags_after_posts" }}</h2>
     </article>
   {{ end }}
 </section>

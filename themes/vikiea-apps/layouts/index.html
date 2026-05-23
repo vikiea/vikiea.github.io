@@ -1,16 +1,17 @@
 {{ define "main" }}
-{{ $apps := hugo.Data.apps }}
+{{ $apps := index hugo.Data.apps .Site.Language.Lang }}
+{{ if not $apps }}{{ $apps = hugo.Data.apps.en }}{{ end }}
 {{ $featured := index (where $apps "featured" true) 0 }}
 
 <section class="hero-section" aria-labelledby="home-title">
   <div class="hero-grid">
     <div class="hero-copy">
-      <p class="soft-label">vikiea.github.io</p>
-      <h1 id="home-title">Recommended apps and tools by vikiea.</h1>
-      <p class="hero-lede">A focused App portfolio for published tools, macOS experiments, and useful software worth opening first.</p>
+      <p class="soft-label">{{ i18n "hero_label" }}</p>
+      <h1 id="home-title">{{ i18n "hero_title" }}</h1>
+      <p class="hero-lede">{{ i18n "hero_lede" }}</p>
       <div class="hero-actions">
-        <a class="button primary" href="#apps">Explore Apps</a>
-        {{ with $featured }}<a class="button secondary" href="{{ .url | relURL }}">{{ .cta | default "View featured app" }}</a>{{ end }}
+        <a class="button primary" href="#apps">{{ i18n "explore_apps" }}</a>
+        {{ with $featured }}<a class="button secondary" href="{{ .url | relURL }}">{{ .cta | default (i18n "view_featured_app") }}</a>{{ end }}
       </div>
     </div>
 
@@ -19,7 +20,7 @@
         <div class="featured-app-top">
           <img class="app-icon" src="{{ .icon | relURL }}" alt="" width="84" height="84">
           <div>
-            <p class="soft-label">Featured app</p>
+            <p class="soft-label">{{ i18n "featured_app" }}</p>
             <h2>{{ .name }}</h2>
           </div>
         </div>
@@ -29,7 +30,7 @@
           <span>{{ .version | default .status }}</span>
           {{ range first 2 .tags }}<span>{{ . }}</span>{{ end }}
         </div>
-        <a class="button light" href="{{ .url | relURL }}">{{ .cta | default "View app" }}</a>
+        <a class="button light" href="{{ .url | relURL }}">{{ .cta | default (i18n "view_app") }}</a>
       </article>
     {{ end }}
   </div>
@@ -38,20 +39,20 @@
 {{ with $featured }}
 <section class="product-showcase" aria-label="{{ .name }} preview">
   <div class="showcase-copy">
-    <p class="soft-label">Recommended first</p>
-    <h2>{{ .name }} is the current flagship app.</h2>
-    <p>It keeps encryption work local, presents long-running operations in a native macOS surface, and links out to its dedicated product page for releases and screenshots.</p>
+    <p class="soft-label">{{ i18n "recommended_first" }}</p>
+    <h2>{{ i18n "featured_app_heading" .name }}</h2>
+    <p>{{ i18n "featured_app_copy" }}</p>
   </div>
-  <a class="screenshot-frame" href="{{ .url | relURL }}" aria-label="Open {{ .name }}">
-    <img src="{{ .image | relURL }}" alt="{{ .name }} encryption screen preview" width="1800" height="1177" loading="lazy">
+  <a class="screenshot-frame" href="{{ .url | relURL }}" aria-label="{{ i18n "open_app" .name }}">
+    <img src="{{ .image | relURL }}" alt="{{ i18n "preview_alt" .name }}" width="1800" height="1177" loading="lazy">
   </a>
 </section>
 {{ end }}
 
 <section class="section-shell" aria-labelledby="app-shelf-title">
   <div class="section-heading">
-    <p class="soft-label">App shelf</p>
-    <h2 id="app-shelf-title">Featured and upcoming App works.</h2>
+    <p class="soft-label">{{ i18n "app_shelf" }}</p>
+    <h2 id="app-shelf-title">{{ i18n "app_shelf_title" }}</h2>
   </div>
   <div class="app-grid">
     {{ range $apps }}
@@ -65,9 +66,9 @@
           {{ range .tags }}<span>{{ . }}</span>{{ end }}
         </div>
         {{ if and .url (ne .url "#") }}
-          <a href="{{ .url | relURL }}">{{ .cta | default "Open" }}</a>
+          <a href="{{ .url | relURL }}">{{ .cta | default (i18n "open") }}</a>
         {{ else }}
-          <span class="muted-action">{{ .cta | default "Coming soon" }}</span>
+          <span class="muted-action">{{ .cta | default (i18n "coming_soon") }}</span>
         {{ end }}
       </article>
     {{ end }}

@@ -51,12 +51,20 @@ hugo --environment theme-vikiea --gc --minify
 ├── .github/workflows/pages.yml   # GitHub Pages 发布 workflow
 ├── config/                       # 分层配置和多主题环境
 ├── content/                      # 页面和文章内容
-│   ├── about.md                  # 关于页
+│   ├── about.md                  # 中文关于页
+│   ├── about.en.md               # 英文关于页，发布到 /en/about/
 │   ├── apps/                     # App 作品入口页
-│   │   └── age-mac.md            # 独立 App 内容页
-│   ├── archives.md               # 归档页入口
+│   │   ├── age-mac.md            # 中文 App 内容页
+│   │   └── age-mac.en.md         # 英文 App 内容页，发布到 /en/apps/age-mac/
+│   ├── archives.md               # 中文归档页入口
+│   ├── archives.en.md            # 英文归档页入口，发布到 /en/archives/
 │   └── posts/                    # 博客文章
-├── data/apps.yaml                # App 作品卡片数据
+├── data/apps/                    # 按语言拆分的 App 作品卡片数据
+│   ├── zh.yaml                   # 中文 App 卡片
+│   └── en.yaml                   # 英文 App 卡片
+├── i18n/                         # 模板界面文案
+│   ├── zh.toml                   # 中文 UI 文案
+│   └── en.toml                   # 英文 UI 文案
 ├── static/                       # 原样复制到站点根目录的静态资源
 ├── themes/
 │   └── vikiea-apps/              # 当前自定义 App 作品主题
@@ -65,10 +73,11 @@ hugo --environment theme-vikiea --gc --minify
 
 ## 写博客文章
 
-文章放在 `content/posts/` 下，推荐文件名使用英文短横线：
+文章放在 `content/posts/` 下。中文是默认语言，文件名不带语言后缀；英文文件使用 `.en.md` 后缀。推荐基础文件名使用英文短横线：
 
 ```text
-content/posts/my-first-note.md
+content/posts/my-first-note.md       # 中文，发布到 /posts/...
+content/posts/my-first-note.en.md    # 英文，发布到 /en/posts/...
 ```
 
 基础 front matter 示例：
@@ -105,7 +114,7 @@ hugo --environment theme-vikiea --gc --minify
 
 ## 添加或修改 App 作品
 
-首页作品卡片来自 `data/apps.yaml`，不需要直接改模板。默认 `theme-vikiea` 主题会读取这份数据并渲染 App 卡片。第三方主题一般不会认识这份自定义数据，所以项目额外保留了 `content/apps/_index.md` 和 `content/apps/*.md`，用于在第三方主题下展示 App 入口和 App 详情。
+首页作品卡片来自 `data/apps/zh.yaml` 和 `data/apps/en.yaml`，不需要直接改模板。默认 `theme-vikiea` 主题会按当前语言读取对应数据并渲染 App 卡片。第三方主题一般不会认识这份自定义数据，所以项目额外保留了 `content/apps/_index.md`、`content/apps/_index.en.md`、`content/apps/*.md` 和 `content/apps/*.en.md`，用于在第三方主题下展示 App 入口和 App 详情。
 
 示例：
 
@@ -156,15 +165,48 @@ title = "vikiea"
   author = "vikiea"
   github = "https://github.com/vikiea"
 
-[[menus.main]]
-  name = "Apps"
-  pageRef = "/apps"
-  weight = 10
+[languages]
+  [languages.zh]
+    locale = "zh-CN"
+    label = "中文"
+    title = "vikiea"
+    [[languages.zh.menus.main]]
+      name = "App"
+      pageRef = "/apps"
+      weight = 10
+  [languages.en]
+    locale = "en-US"
+    label = "English"
+    title = "vikiea"
+    [[languages.en.menus.main]]
+      name = "Apps"
+      pageRef = "/apps"
+      weight = 10
 ```
 
 菜单按 `weight` 从小到大排序。
 
 当前公开导航只保留 `Apps`。`content/posts/`、`content/about.md`、`content/archives.md` 和标签页模板仍保留，但不会出现在首页导航和首页推荐区中。
+
+## 国际化
+
+当前站点支持中文和英文：
+
+```text
+https://vikiea.github.io/      # 中文默认站点
+https://vikiea.github.io/en/   # 英文站点
+```
+
+维护规则：
+
+- 中文默认内容：`content/about.md`、`content/posts/hello-hugo.md`
+- 英文内容：同名文件加 `.en.md`，例如 `content/about.en.md`
+- 中文 App 卡片：`data/apps/zh.yaml`
+- 英文 App 卡片：`data/apps/en.yaml`
+- 模板界面文案：`i18n/zh.toml` 和 `i18n/en.toml`
+- 站点语言、语言标签、菜单：`config/_default/hugo.toml` 的 `[languages]`
+
+新增双语页面时，优先保持中英文文件同名，只通过 `.en.md` 区分语言。这样 Hugo 可以自动生成语言切换链接。
 
 ## 静态资源
 
@@ -254,9 +296,9 @@ theme = ["<third-party-theme>-compat", "<third-party-theme>"]
 无损切换约定：
 
 - 内容放在 `content/`，不要依赖某个主题专属 front matter
-- App 数据放在 `data/apps.yaml`
-- App 入口页放在 `content/apps/_index.md`
-- 重要 App 也同步一份 `content/apps/*.md`，保证第三方博客主题能展示它
+- App 数据按语言放在 `data/apps/zh.yaml` 和 `data/apps/en.yaml`
+- App 入口页放在 `content/apps/_index.md` 和 `content/apps/_index.en.md`
+- 重要 App 也同步 `content/apps/*.md` 和 `content/apps/*.en.md`，保证第三方博客主题能展示它
 - 图片等通用资源放在 `static/`
 - 不要在根目录放 `layouts/` 或 `assets/`，否则会覆盖所有主题
 - 第三方主题专属参数只放进对应的 `config/theme-*/hugo.toml`
@@ -335,7 +377,7 @@ ruby -e 'require "yaml"; YAML.load_file(".github/workflows/pages.yml"); puts "pa
 
 ### 首页 App 卡片图片不显示
 
-确认图片文件在 `static/images/` 下，并且 `data/apps.yaml` 中使用 `/images/...` 路径。
+确认图片文件在 `static/images/` 下，并且 `data/apps/zh.yaml`、`data/apps/en.yaml` 中使用 `/images/...` 路径。
 
 ### GitHub Pages 显示 README 而不是 Hugo 首页
 

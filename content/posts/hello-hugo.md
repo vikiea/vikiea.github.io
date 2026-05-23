@@ -1,12 +1,12 @@
 ---
-title: "Hello Hugo"
+title: "你好 Hugo"
 date: 2026-05-22T00:00:00+08:00
 draft: true
-description: "A draft post used to verify the Hugo blog scaffold."
+description: "用于验证 Hugo 博客骨架的草稿。"
 tags:
   - Hugo
-  - Notes
+  - 笔记
 slug: "hello-hugo"
 ---
 
-This draft exists to verify the writing flow. Replace it with real notes when the site is ready for content.
+这篇草稿用于验证写作流程。等站点准备好正式内容后，可以替换成真实笔记。

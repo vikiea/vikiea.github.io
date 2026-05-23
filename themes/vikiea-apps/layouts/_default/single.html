@@ -1,7 +1,7 @@
 {{ define "main" }}
 <article class="article">
   <header class="article-header">
-    <p class="soft-label">{{ .Section | default "Page" }}</p>
+    <p class="soft-label">{{ .Section | default (i18n "page") }}</p>
     <h1>{{ .Title }}</h1>
     {{ if eq .Section "posts" }}
       <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>

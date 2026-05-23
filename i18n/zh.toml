@@ -1,0 +1,107 @@
+[skip_to_content]
+other = "跳到正文"
+
+[home_aria]
+other = "首页"
+
+[main_navigation]
+other = "主导航"
+
+[language_switcher]
+other = "语言"
+
+[hero_label]
+other = "vikiea.github.io"
+
+[hero_title]
+other = "vikiea 的 App 与工具推荐。"
+
+[hero_lede]
+other = "一个专注展示已发布工具、macOS 实验和实用软件的个人 App 作品页。"
+
+[explore_apps]
+other = "浏览 App"
+
+[view_featured_app]
+other = "查看主推 App"
+
+[featured_app]
+other = "主推 App"
+
+[view_app]
+other = "查看 App"
+
+[recommended_first]
+other = "优先推荐"
+
+[featured_app_heading]
+other = "{{ . }} 是当前主推 App。"
+
+[featured_app_copy]
+other = "它把加密工作留在本机，用原生 macOS 界面呈现长期运行任务，并链接到独立产品页查看版本和截图。"
+
+[open_app]
+other = "打开 {{ . }}"
+
+[preview_alt]
+other = "{{ . }} 加密界面预览"
+
+[app_shelf]
+other = "App 展示架"
+
+[app_shelf_title]
+other = "已发布与即将推出的 App 作品。"
+
+[open]
+other = "打开"
+
+[coming_soon]
+other = "敬请期待"
+
+[built_with]
+other = "使用 Hugo 构建的 App 作品页。"
+
+[empty_for_now]
+other = "暂时为空"
+
+[no_published_content]
+other = "还没有已发布内容。"
+
+[future_posts]
+other = "草稿和未来文章会在发布后显示在这里。"
+
+[taxonomy]
+other = "分类"
+
+[browse_notes_by_tag]
+other = "按标签浏览笔记。"
+
+[no_tags_yet]
+other = "还没有标签"
+
+[tags_after_posts]
+other = "发布文章后标签会显示在这里。"
+
+[archive]
+other = "归档"
+
+[no_published_posts]
+other = "还没有已发布文章"
+
+[archive_ready]
+other = "归档页已为未来写作准备好。"
+
+[page]
+other = "页面"
+
+[tags]
+other = "标签"
+
+[not_found_title]
+other = "页面未找到。"
+
+[not_found_copy]
+other = "这个页面可能已经移动，或者属于另一个项目站点。"
+
+[back_home]
+other = "返回首页"

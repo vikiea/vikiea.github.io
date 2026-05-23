@@ -1,0 +1,107 @@
+[skip_to_content]
+other = "Skip to content"
+
+[home_aria]
+other = "home"
+
+[main_navigation]
+other = "Main navigation"
+
+[language_switcher]
+other = "Language"
+
+[hero_label]
+other = "vikiea.github.io"
+
+[hero_title]
+other = "Recommended apps and tools by vikiea."
+
+[hero_lede]
+other = "A focused App portfolio for published tools, macOS experiments, and useful software worth opening first."
+
+[explore_apps]
+other = "Explore Apps"
+
+[view_featured_app]
+other = "View featured app"
+
+[featured_app]
+other = "Featured app"
+
+[view_app]
+other = "View app"
+
+[recommended_first]
+other = "Recommended first"
+
+[featured_app_heading]
+other = "{{ . }} is the current flagship app."
+
+[featured_app_copy]
+other = "It keeps encryption work local, presents long-running operations in a native macOS surface, and links out to its dedicated product page for releases and screenshots."
+
+[open_app]
+other = "Open {{ . }}"
+
+[preview_alt]
+other = "{{ . }} encryption screen preview"
+
+[app_shelf]
+other = "App shelf"
+
+[app_shelf_title]
+other = "Featured and upcoming App works."
+
+[open]
+other = "Open"
+
+[coming_soon]
+other = "Coming soon"
+
+[built_with]
+other = "App portfolio built with Hugo."
+
+[empty_for_now]
+other = "Empty for now"
+
+[no_published_content]
+other = "No published content yet."
+
+[future_posts]
+other = "Drafts and future posts will appear here after publication."
+
+[taxonomy]
+other = "Taxonomy"
+
+[browse_notes_by_tag]
+other = "Browse notes by tag."
+
+[no_tags_yet]
+other = "No tags yet"
+
+[tags_after_posts]
+other = "Tags will appear after posts are published."
+
+[archive]
+other = "Archive"
+
+[no_published_posts]
+other = "No published posts yet"
+
+[archive_ready]
+other = "The archive is ready for future writing."
+
+[page]
+other = "Page"
+
+[tags]
+other = "Tags"
+
+[not_found_title]
+other = "Page not found."
+
+[not_found_copy]
+other = "The page may have moved, or it may belong to another project site."
+
+[back_home]
+other = "Back home"

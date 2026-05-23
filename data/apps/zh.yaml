@@ -1,0 +1,24 @@
+- name: Age Mac
+  summary: 面向 macOS 的本地优先 age 文件加密工具。文件、密钥、口令和操作历史都留在你的 Mac 上。
+  url: /age_mac/
+  platform: macOS
+  status: 当前公开版本
+  version: "1.3.2"
+  tags:
+    - 加密
+    - macOS
+    - 本地优先
+  featured: true
+  icon: /images/age-mac-icon.png
+  image: /images/age-mac-screenshot.jpg
+  cta: 查看 Age Mac
+- name: 更多 App
+  summary: 为下一个值得发布的小工具、原生 App 或实用软件预留的作品位。
+  url: "#"
+  platform: 即将推出
+  status: 占位
+  tags:
+    - 想法
+    - 工具
+  featured: false
+  cta: 敬请期待
