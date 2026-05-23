@@ -830,13 +830,26 @@ code {
     grid-template-columns: 1fr;
   }
 
+  .hero-section {
+    padding: 48px 0 24px;
+  }
+
   .hero-copy,
   .featured-app-card {
     min-height: auto;
   }
 
+  .hero-copy {
+    padding: 36px;
+  }
+
   .featured-app-card {
-    gap: 28px;
+    gap: 22px;
+    padding: 26px;
+  }
+
+  .app-meta-grid span {
+    min-height: auto;
   }
 
   .app-grid {
@@ -860,37 +873,80 @@ code {
   .header-inner {
     min-height: auto;
     padding: 14px 0;
-    align-items: flex-start;
-    flex-direction: column;
+    align-items: center;
   }
 
   .site-nav {
-    width: 100%;
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding-bottom: 4px;
+    justify-content: flex-end;
   }
 
   .hero-section {
-    padding-top: 26px;
+    padding: 24px 0 18px;
   }
 
   .hero-copy,
   .featured-app-card,
   .section-shell,
-.page-title,
+  .page-title,
   .page-hero,
   .article,
   .product-showcase {
-    border-radius: 22px;
+    border-radius: 18px;
   }
 
   .page-title {
     margin-top: 24px;
   }
 
+  .hero-copy {
+    border: 0;
+    padding: 4px 2px 6px;
+    background: transparent;
+    box-shadow: none;
+  }
+
   .hero-copy h1 {
-    font-size: clamp(42px, 14vw, 62px);
+    margin-top: 12px;
+    font-size: clamp(34px, 10vw, 48px);
+    line-height: 1.02;
+  }
+
+  .hero-lede {
+    margin-top: 18px;
+  }
+
+  .hero-actions {
+    margin-top: 24px;
+    gap: 10px;
+  }
+
+  .hero-actions .button {
+    flex: 1 1 140px;
+  }
+
+  .featured-app-card {
+    padding: 22px;
+    gap: 18px;
+  }
+
+  .featured-app-card::before {
+    width: 112px;
+    height: 112px;
+    border-radius: 28px;
+  }
+
+  .featured-app-card h2 {
+    font-size: clamp(28px, 8vw, 36px);
+  }
+
+  .featured-app-card p:not(.soft-label) {
+    font-size: 16px;
+  }
+
+  .app-icon {
+    width: 62px;
+    height: 62px;
+    border-radius: 15px;
   }
 
   .hero-lede,
@@ -903,7 +959,19 @@ code {
   }
 
   .app-meta-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .app-meta-grid span {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .product-showcase,
+  .section-shell {
+    margin-top: 16px;
+    padding: 20px;
   }
 
   .footer-inner {
@@ -914,5 +982,90 @@ code {
   .archive-row {
     grid-template-columns: 1fr;
     gap: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --gutter: 14px;
+  }
+
+  body {
+    background:
+      radial-gradient(circle at 8% -8%, rgba(37, 87, 246, 0.12), transparent 24rem),
+      linear-gradient(180deg, #fbfcff 0%, var(--bg) 30rem);
+  }
+
+  .header-inner {
+    gap: 12px;
+  }
+
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+  }
+
+  .site-nav a {
+    padding: 8px 10px;
+  }
+
+  .hero-grid {
+    gap: 14px;
+  }
+
+  .hero-copy {
+    padding: 2px 0 4px;
+  }
+
+  .soft-label {
+    font-size: 11px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(30px, 10.8vw, 40px);
+  }
+
+  .hero-lede {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .hero-actions {
+    align-items: stretch;
+  }
+
+  .hero-actions .button {
+    min-height: 44px;
+  }
+
+  .featured-app-card {
+    padding: 18px;
+  }
+
+  .featured-app-top {
+    gap: 12px;
+  }
+
+  .app-icon {
+    width: 54px;
+    height: 54px;
+  }
+
+  .button.light {
+    min-height: 44px;
+  }
+
+  .product-showcase,
+  .section-shell {
+    padding: 18px;
+  }
+
+  .showcase-copy h2,
+  .section-heading h2,
+  .page-title h1,
+  .article-header h1 {
+    font-size: clamp(26px, 8.5vw, 34px);
+    line-height: 1.08;
   }
 }
