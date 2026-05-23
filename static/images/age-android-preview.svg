@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 940" role="img" aria-label="Age Android preview">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1400" y2="940" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07111f"/>
+      <stop offset=".55" stop-color="#11263d"/>
+      <stop offset="1" stop-color="#0c3b3b"/>
+    </linearGradient>
+    <linearGradient id="phone" x1="440" y1="90" x2="960" y2="850" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#dbeafe"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="520" y1="230" x2="860" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#42d392"/>
+      <stop offset="1" stop-color="#1f8fff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="940" fill="url(#bg)"/>
+  <circle cx="1120" cy="130" r="230" fill="#42d392" opacity=".12"/>
+  <circle cx="230" cy="790" r="280" fill="#1f8fff" opacity=".16"/>
+  <rect x="445" y="72" width="510" height="796" rx="66" fill="#060b14"/>
+  <rect x="475" y="108" width="450" height="724" rx="42" fill="url(#phone)"/>
+  <rect x="514" y="152" width="176" height="22" rx="11" fill="#94a3b8"/>
+  <rect x="514" y="218" width="280" height="34" rx="17" fill="#0f172a"/>
+  <rect x="514" y="276" width="356" height="112" rx="28" fill="url(#accent)"/>
+  <path d="M562 335h260" stroke="#fff" stroke-width="18" stroke-linecap="round" opacity=".86"/>
+  <path d="M562 359h178" stroke="#fff" stroke-width="14" stroke-linecap="round" opacity=".6"/>
+  <rect x="514" y="424" width="356" height="88" rx="24" fill="#fff"/>
+  <rect x="546" y="453" width="66" height="30" rx="15" fill="#42d392"/>
+  <rect x="636" y="449" width="178" height="14" rx="7" fill="#334155"/>
+  <rect x="636" y="474" width="118" height="12" rx="6" fill="#94a3b8"/>
+  <rect x="514" y="536" width="356" height="88" rx="24" fill="#fff"/>
+  <rect x="546" y="565" width="66" height="30" rx="15" fill="#1f8fff"/>
+  <rect x="636" y="561" width="196" height="14" rx="7" fill="#334155"/>
+  <rect x="636" y="586" width="138" height="12" rx="6" fill="#94a3b8"/>
+  <rect x="514" y="648" width="356" height="88" rx="24" fill="#fff"/>
+  <rect x="546" y="677" width="66" height="30" rx="15" fill="#0f172a"/>
+  <rect x="636" y="673" width="156" height="14" rx="7" fill="#334155"/>
+  <rect x="636" y="698" width="172" height="12" rx="6" fill="#94a3b8"/>
+  <rect x="570" y="780" width="260" height="16" rx="8" fill="#94a3b8"/>
+  <text x="86" y="180" fill="#e2e8f0" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="44" font-weight="760">Age Android</text>
+  <text x="86" y="238" fill="#94a3b8" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="25">Local-first file encryption</text>
+  <text x="86" y="292" fill="#94a3b8" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="25">for Android devices</text>
+  <rect x="86" y="350" width="230" height="58" rx="29" fill="#42d392"/>
+  <text x="128" y="387" fill="#07111f" font-family="Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-size="22" font-weight="760">Android v2.0.0</text>
+</svg>

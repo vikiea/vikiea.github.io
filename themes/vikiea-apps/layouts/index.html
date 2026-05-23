@@ -13,6 +13,16 @@
         <a class="button primary" href="#apps">{{ i18n "explore_apps" }}</a>
         {{ with $featured }}<a class="button secondary" href="{{ .url | relURL }}">{{ .cta | default (i18n "view_featured_app") }}</a>{{ end }}
       </div>
+      <nav class="app-tabs" aria-label="{{ i18n "app_tabs_label" }}">
+        {{ range $apps }}
+          {{ if and .url (ne .url "#") }}
+            <a href="{{ .url | relURL }}">
+              <span class="tab-platform">{{ .platform }}</span>
+              <strong>{{ .name }}</strong>
+            </a>
+          {{ end }}
+        {{ end }}
+      </nav>
     </div>
 
     {{ with $featured }}

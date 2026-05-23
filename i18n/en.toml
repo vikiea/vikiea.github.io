@@ -22,6 +22,9 @@ other = "A focused App portfolio for published tools, macOS experiments, and use
 [explore_apps]
 other = "Explore Apps"
 
+[app_tabs_label]
+other = "App shortcuts"
+
 [view_featured_app]
 other = "View featured app"
 

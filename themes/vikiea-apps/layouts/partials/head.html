@@ -13,8 +13,10 @@
 <meta property="og:url" content="{{ .Permalink }}">
 {{ $apps := index hugo.Data.apps .Site.Language.Lang -}}
 {{ if not $apps }}{{ $apps = hugo.Data.apps.en }}{{ end -}}
-{{ with (index (where $apps "featured" true) 0) -}}
-<meta property="og:image" content="{{ .image | absURL }}">
+{{ $image := .Params.image -}}
+{{ if not $image }}{{ with (index (where $apps "featured" true) 0) }}{{ $image = .image }}{{ end }}{{ end -}}
+{{ with $image -}}
+<meta property="og:image" content="{{ . | absURL }}">
 {{ end -}}
 <link rel="canonical" href="{{ .Permalink }}">
 {{ range .AllTranslations -}}

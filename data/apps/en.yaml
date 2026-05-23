@@ -12,13 +12,17 @@
   icon: /images/age-mac-icon.png
   image: /images/age-mac-screenshot.jpg
   cta: View Age Mac
-- name: More Apps
-  summary: A reserved shelf for the next small tool, native app, or utility worth publishing.
-  url: "#"
-  platform: Coming soon
-  status: Placeholder
+- name: Age Android
+  summary: Local-first age encryption for Android. Encrypt, decrypt, manage keys, and review history entirely on device.
+  url: /age_android/
+  platform: Android
+  status: Current public release
+  version: "2.0.0"
   tags:
-    - Ideas
-    - Tools
+    - Encryption
+    - Android
+    - Local-first
   featured: false
-  cta: Coming Soon
+  icon: /images/age-android-icon.svg
+  image: /images/age-android-preview.svg
+  cta: View Age Android

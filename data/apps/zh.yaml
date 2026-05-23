@@ -12,13 +12,17 @@
   icon: /images/age-mac-icon.png
   image: /images/age-mac-screenshot.jpg
   cta: 查看 Age Mac
-- name: 更多 App
-  summary: 为下一个值得发布的小工具、原生 App 或实用软件预留的作品位。
-  url: "#"
-  platform: 即将推出
-  status: 占位
+- name: Age Android
+  summary: 面向 Android 的本地优先 age 文件加密 App。加密、解密、密钥管理和操作历史都在设备端完成。
+  url: /age_android/
+  platform: Android
+  status: 当前公开版本
+  version: "2.0.0"
   tags:
-    - 想法
-    - 工具
+    - 加密
+    - Android
+    - 本地优先
   featured: false
-  cta: 敬请期待
+  icon: /images/age-android-icon.svg
+  image: /images/age-android-preview.svg
+  cta: 查看 Age Android
