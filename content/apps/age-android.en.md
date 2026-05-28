@@ -26,6 +26,9 @@ Repository: [github.com/vikiea/age_android](https://github.com/vikiea/age_androi
 - Review encryption and decryption history, output paths, and task status.
 - Use a clearer Liquid Glass interface with improved frosted-glass treatment in light mode.
 - Check for updates in app, download APKs, and follow Android's install-permission flow.
+- Migrate the Android application ID to `io.github.vikiea.age` and align the gomobile engine Java package.
+- Use shared glass card styling across encryption and decryption screens, with swipe gestures on history tabs.
+- Show key-import completion as a short auto-dismiss tip instead of a heavier interruption.
 - Download a Universal APK or ABI-specific APKs.
 
 ## Privacy Model
@@ -34,6 +37,6 @@ Age Android does not collect analytics, upload files, or transmit passphrases or
 
 ## Release
 
-The current public release is `v3.1.1`, published on 2026-05-27. This release restores the light-mode Liquid Glass translucency so cards read as frosted glass instead of opaque white panels.
+The current public release is `v4.0.0`, published on 2026-05-28. This release migrates the Android application ID to `io.github.vikiea.age`, aligns the gomobile engine package, unifies encryption/decryption glass cards, adds swipe gestures to history tabs, and turns key-import completion into a short tip.
 
 Open the [Age Android product page](/age_android/) for APK downloads, screenshots, and release notes.
