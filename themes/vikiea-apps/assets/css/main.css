@@ -604,6 +604,18 @@ code {
   color: var(--muted);
 }
 
+.app-card .app-version-line {
+  display: inline-flex;
+  width: fit-content;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 10px;
+  background: var(--pill-bg);
+  color: var(--nav-ink);
+  font-size: 13px;
+  font-weight: 760;
+}
+
 .app-card > a,
 .muted-action {
   color: var(--accent);

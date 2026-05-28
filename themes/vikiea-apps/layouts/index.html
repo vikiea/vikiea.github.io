@@ -71,6 +71,9 @@
           <p class="soft-label">{{ .platform }}</p>
           <h3>{{ .name }}</h3>
           <p>{{ .summary }}</p>
+          {{ if or .version .status }}
+            <p class="app-version-line">{{ .version | default .status }}</p>
+          {{ end }}
         </div>
         <div class="tag-row">
           {{ range .tags }}<span>{{ . }}</span>{{ end }}
